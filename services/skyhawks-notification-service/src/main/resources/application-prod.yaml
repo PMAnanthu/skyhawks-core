@@ -1,0 +1,25 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /v0.1
+
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: skyhawks.app@gmail.com
+    password: nuvldcdnuafzcbxv
+    properties:
+      mail:
+        debug: false
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+          starttls:
+            enable: true

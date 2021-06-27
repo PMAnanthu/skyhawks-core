@@ -1,0 +1,29 @@
+server:
+  port: 1000
+  servlet:
+    context-path: /v0.1
+
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    url: jdbc:postgresql://localhost:5432/login
+    username: ananthupm
+    password: Password
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+app:
+  service:
+    authenticate-user: true
+    validate-user: true
+    gateway-service-url: http://localhost:8000/v0.1
+
+
+springdoc:
+  swagger-ui:
+    path: /v0.1/swagger-ui-custom.html
