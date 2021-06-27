@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: skyhawks-app
+spec:
+  containers:
+  - name: gateway-service
+    image: skyhawks-api-gateway:temp
+    imagePullPolicy: IfNotPresent
+    ports:
+      - containerPort: 8000
+

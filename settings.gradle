@@ -1,0 +1,8 @@
+rootProject.name = 'skyhawks-core'
+
+include ':libs:skyhawks-utils'
+include ':libs:skyhawks-dtos'
+include ':services:skyhawks-api-gateway'
+include ':services:skyhawks-notification-service'
+include ':services:skyhawks-user-service'
+include ':services:skyhawks-school-service'
