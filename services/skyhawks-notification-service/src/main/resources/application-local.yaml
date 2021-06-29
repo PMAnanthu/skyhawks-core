@@ -1,11 +1,11 @@
 server:
-  port: 9000
+  port: 8050
   servlet:
     context-path: /v0.1
 
 spring:
-  liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.xml
+  application:
+    name: skyhawks-notification-service
   mail:
     host: smtp.gmail.com
     port: 587
@@ -23,7 +23,6 @@ spring:
           writetimeout: 10000
           starttls:
             enable: true
+  zipkin:
+    base-url: http://127.0.0.1:9411/
 
-springdoc:
-  swagger-ui:
-    path: /v0.1/swagger-ui-custom.html

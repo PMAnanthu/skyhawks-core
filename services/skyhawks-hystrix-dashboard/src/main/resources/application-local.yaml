@@ -1,0 +1,10 @@
+server:
+  port: 8150
+
+spring:
+  application:
+    name: skyhawks-hystrix-dashboard
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

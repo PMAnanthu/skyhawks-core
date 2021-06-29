@@ -22,12 +22,13 @@ import java.util.List;
 
 @Data
 @RestController
+@RequestMapping("/school")
 public class SchoolController {
 
     private final SchoolService schoolService;
     private final ManagerValidator managerValidator;
 
-    @PostMapping(path = "/school")
+    @PostMapping("/")
     public ResponseEntity<String> saveSchool(@Valid @RequestBody SchoolRequest request) throws UserNotFountException {
         if (managerValidator.isValid(request.getMangerId())) {
             schoolService.insert(request);
@@ -36,7 +37,7 @@ public class SchoolController {
         throw new UserNotFountException("Manger is not fount in application");
     }
 
-    @PutMapping(path = "/school")
+    @PutMapping("/")
     public ResponseEntity<String> updateSchool(@Valid @RequestBody SchoolRequest request)
             throws SchoolNotFountException, UserNotFountException {
         if (managerValidator.isValid(request.getMangerId())) {
@@ -46,12 +47,12 @@ public class SchoolController {
         throw new UserNotFountException("Manger is not fount in application");
     }
 
-    @GetMapping(path = "/schools")
+    @GetMapping(path = "/all")
     public List<SchoolResponse> getAllSchool() {
         return schoolService.getAllSchool();
     }
 
-    @GetMapping(path = "/school/{schoolCode}")
+    @GetMapping(path = "/{schoolCode}")
     public SchoolResponse getSchool(@PathVariable String schoolCode)
             throws SchoolNotFountException {
         return schoolService.getSchool(schoolCode);

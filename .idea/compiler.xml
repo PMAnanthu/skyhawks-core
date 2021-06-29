@@ -8,10 +8,7 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.1/2a5077776e83fe3ed7a454d5483076edf6f7081d/spring-boot-configuration-processor-2.5.1.jar" />
         </processorPath>
-        <module name="skyhawks-core.services.skyhawks-school-service.main" />
-        <module name="skyhawks-core.services.skyhawks-api-gateway.main" />
-        <module name="skyhawks-core.services.skyhawks-notification-service.main" />
-        <module name="skyhawks-core.services.skyhawks-user-service.main" />
+        <module name="skyhawks-core.services.skyhawks-registry-service.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -19,6 +16,18 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
         </processorPath>
         <module name="skyhawks-core.libs.skyhawks-dtos.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.3.12.RELEASE/36c6cbb35ca07dc8810e913edfe045d8f89a303d/spring-boot-configuration-processor-2.3.12.RELEASE.jar" />
+        </processorPath>
+        <module name="skyhawks-core.services.skyhawks-school-service.main" />
+        <module name="skyhawks-core.services.skyhawks-authentication-service.main" />
+        <module name="skyhawks-core.services.skyhawks-notification-service.main" />
+        <module name="skyhawks-core.services.skyhawks-user-service.main" />
+        <module name="skyhawks-core.services.skyhawks-api-gateway-service.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />

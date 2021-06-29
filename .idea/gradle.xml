@@ -13,8 +13,12 @@
             <option value="$PROJECT_DIR$/libs/skyhawks-dtos" />
             <option value="$PROJECT_DIR$/libs/skyhawks-utils" />
             <option value="$PROJECT_DIR$/services" />
-            <option value="$PROJECT_DIR$/services/skyhawks-api-gateway" />
+            <option value="$PROJECT_DIR$/services/skyhawks-api-gateway-service" />
+            <option value="$PROJECT_DIR$/services/skyhawks-authentication-service" />
+            <option value="$PROJECT_DIR$/services/skyhawks-config-service" />
+            <option value="$PROJECT_DIR$/services/skyhawks-hystrix-dashboard" />
             <option value="$PROJECT_DIR$/services/skyhawks-notification-service" />
+            <option value="$PROJECT_DIR$/services/skyhawks-registry-service" />
             <option value="$PROJECT_DIR$/services/skyhawks-school-service" />
             <option value="$PROJECT_DIR$/services/skyhawks-user-service" />
           </set>

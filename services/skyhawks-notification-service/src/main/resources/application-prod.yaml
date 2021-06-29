@@ -1,11 +1,11 @@
 server:
-  port: 9000
+  port: 8050
   servlet:
     context-path: /v0.1
 
 spring:
-  liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.xml
+  application:
+    name: skyhawks-notification-service
   mail:
     host: smtp.gmail.com
     port: 587
@@ -13,7 +13,7 @@ spring:
     password: nuvldcdnuafzcbxv
     properties:
       mail:
-        debug: false
+        debug: true
         transport:
           protocol: smtp
         smtp:
@@ -23,3 +23,16 @@ spring:
           writetimeout: 10000
           starttls:
             enable: true
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: eureka-0
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka

@@ -1,10 +1,11 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.1'
+	id 'org.springframework.boot' version '2.3.12.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'org.asciidoctor.convert' version '1.5.8'
 	id 'java'
 }
 
+version = '0.0.1'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -19,16 +20,21 @@ repositories {
 
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
+	set('springCloudVersion', "2020.0.3")
+	set('springCloudVersion', "Hoxton.SR11")
 }
 
 dependencies {
 	implementation project(':libs:skyhawks-dtos')
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-json'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
-	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
+	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.5.9'
 	implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.5.9'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8'
@@ -40,17 +46,22 @@ dependencies {
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
 
-test {
-	outputs.dir snippetsDir
-	useJUnitPlatform()
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
 }
 
-asciidoctor {
-	inputs.dir snippetsDir
-	dependsOn test
-}
+
+
+String image="pmananthu/skyhawks-notification-service:${project.version}"
 
 task buildDocker(type: Exec){
 	println 'building docker for skyhawks-notification-service'
-	commandLine 'docker','build','-t','skyhawks-notification-service:temp','.'
+	commandLine 'docker','build','-t',image,'.'
+}
+
+task pushDocker(type: Exec){
+	println 'pushing docker for skyhawks-notification-servic'
+	commandLine 'docker','push',image
 }

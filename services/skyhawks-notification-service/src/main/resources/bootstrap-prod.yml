@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8300/v0.1/config-client/development/main

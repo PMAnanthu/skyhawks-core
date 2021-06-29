@@ -1,0 +1,52 @@
+server:
+  port: 8200
+  servlet:
+    context-path: /v0.1
+
+management:
+  endpoint.gateway.enabled: true
+  endpoints:
+      web:
+        exposure:
+          include:
+            - hystrix.stream
+            - gateway
+            - info
+
+spring:
+  application:
+    name: skyhawks-api-gateway-service
+  cloud:
+    gateway:
+      discovery.locator.enabled: true
+      routes:
+
+        - id: skyhawks-authentication-service
+          uri: lb://skyhawks-authentication-service/v0.1
+          predicates:
+            - Path=/v0.1/authentication/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: skyhawks-authentication-service
+                fallbackuri: forward:/authenticationServiceFallBack
+
+        - id: skyhawks-school-service
+          uri: lb://skyhawks-school-service/v0.1
+          predicates:
+            - Path=/v0.1/school/**
+          filters:
+            - AuthFilter
+            - name: CircuitBreaker
+              args:
+                name: skyhawks-school-service
+                fallbackuri: forward:/schoolServiceFallBack
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+

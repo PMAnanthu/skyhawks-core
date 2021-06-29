@@ -6,6 +6,7 @@ Date : 26/06/21
 */
 
 import lombok.Data;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -16,9 +17,15 @@ import org.springframework.web.client.RestTemplate;
 @ConfigurationProperties(prefix = "app.service")
 public class ApplicationConfiguration {
 
+    private String gatewayServiceUrl;
+
     @Bean
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
 
+    @Bean
+    public ModelMapper getModelMapper(){
+        return new ModelMapper();
+    }
 }

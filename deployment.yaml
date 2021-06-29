@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: gateway-service
-    image: skyhawks-api-gateway:temp
+    image: pmananthu/skyhawks-api-gateway:temp
     imagePullPolicy: IfNotPresent
     ports:
       - containerPort: 8000

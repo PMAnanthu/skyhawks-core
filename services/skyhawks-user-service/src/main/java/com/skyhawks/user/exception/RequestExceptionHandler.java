@@ -80,14 +80,13 @@ public class RequestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(StudentNotFountException.class)
-    public final ResponseEntity<Object> handleAllExceptions(StudentNotFountException ex, WebRequest request) {
+    @ExceptionHandler(UserNotFountException.class)
+    public final ResponseEntity<Object> handleAllExceptions(UserNotFountException ex, WebRequest request) {
         Response response = new Response();
-        response.setMessage("Admission number is wrong");
+        response.setMessage("School code is wrong");
         List<String> details = new ArrayList<>();
         details.add(ex.getMessage());
         response.setErrors(details);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
-
 }
