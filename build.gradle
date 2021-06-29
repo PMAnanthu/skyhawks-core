@@ -1,5 +1,3 @@
-import sun.lwawt.macosx.CPrinterDevice
-
 group = 'com'
 version = '0.0.1'
 
